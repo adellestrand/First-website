@@ -1,0 +1,74 @@
+﻿@model DriversJournal.Models.Project
+
+@{
+    ViewBag.Title = "Project - Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container myWrapperProject">
+    <h2>Delete</h2>
+
+    <h3>Are you sure you want to delete this Project?</h3>
+    <div>
+        
+        <hr />
+        <dl class="dl-horizontal text-left">
+            <dt>
+                @Html.DisplayNameFor(model => model.JournalUser.Email)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.JournalUser.Email)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ProjectNo)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ProjectNo)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Detail)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Detail)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Active)
+               
+            </dt>
+            
+                @if (Model.Active == 0)
+                {
+                    <dd>No</dd>
+                }
+                else
+                {
+                    <dd>Yes</dd>
+                }
+            
+        </dl>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <a href="@Url.Action("Index", "Projects")" class="btn btn-default"><span class="glyphicon glyphicon-chevron-left"></span> Go Back</a>
+                <input type="submit" value="Delete" class="btn btn-primary" /> 
+                
+            </div>
+        }
+    </div>
+</div>

@@ -1,0 +1,17 @@
+﻿@using DriversJournal.Models;
+
+@{
+    ViewBag.Title = "Index";
+}
+
+@{ JournalUser user = (JournalUser)HttpContext.Current.Session["SessionUser"]; }
+
+@*<p>Welcome user: @user.FirstName</p> <!-- Test för att se om sessionen håller data -->*@
+
+<div class="container myWrapper">
+    <a href="@Url.Action("Journal","Journals")" title="Register Drive" class="btn btn-sogetired btn-block btn-lg">Register Drive <span class="glyphicon glyphicon-chevron-right"></span></a>
+    <br />
+    <a href="@Url.Action("Index","Projects")" title="Manage Projects" class="btn btn-sogetired btn-block btn-lg">Manage Projects <span class="glyphicon glyphicon-chevron-right"></span></a>
+    <br />
+    <a href="@Url.Action("LoggedJournals", "LoggedJournals")" title="View Journals" class="btn btn-sogetired btn-block btn-lg">View Journals <span class="glyphicon glyphicon-chevron-right"></span></a>
+</div>

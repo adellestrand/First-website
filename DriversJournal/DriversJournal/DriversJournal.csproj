@@ -1,0 +1,401 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C915A14D-F386-4630-B15D-D90C0ED5FB1D}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DriversJournal</RootNamespace>
+    <AssemblyName>DriversJournal</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\DriversJournal.XML</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime, Version=3.5.0.2, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.2\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.2\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=__MvcPagesVersion__, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.2\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.2\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease, Version=1.6.5135.21930, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\ForgotPasswordController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\JournalsController.cs" />
+    <Compile Include="Controllers\LoggedJournalsController.cs" />
+    <Compile Include="Controllers\ProjectsController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201502171438237_createTablesFromModels.cs" />
+    <Compile Include="Migrations\201502171438237_createTablesFromModels.Designer.cs">
+      <DependentUpon>201502171438237_createTablesFromModels.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201502171940187_changeToProjectNo.cs" />
+    <Compile Include="Migrations\201502171940187_changeToProjectNo.Designer.cs">
+      <DependentUpon>201502171940187_changeToProjectNo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201502191507523_addFirstNameLastname.cs" />
+    <Compile Include="Migrations\201502191507523_addFirstNameLastname.Designer.cs">
+      <DependentUpon>201502191507523_addFirstNameLastname.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201502191519454_changePropToEmail.cs" />
+    <Compile Include="Migrations\201502191519454_changePropToEmail.Designer.cs">
+      <DependentUpon>201502191519454_changePropToEmail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201502192038447_changePropToDestination.cs" />
+    <Compile Include="Migrations\201502192038447_changePropToDestination.Designer.cs">
+      <DependentUpon>201502192038447_changePropToDestination.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201502231333586_deletedPropModelAddOdometer.cs" />
+    <Compile Include="Migrations\201502231333586_deletedPropModelAddOdometer.Designer.cs">
+      <DependentUpon>201502231333586_deletedPropModelAddOdometer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201502241036382_addPropSavedNotSent.cs" />
+    <Compile Include="Migrations\201502241036382_addPropSavedNotSent.Designer.cs">
+      <DependentUpon>201502241036382_addPropSavedNotSent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201502241501230_changeProjectNumberToInt.cs" />
+    <Compile Include="Migrations\201502241501230_changeProjectNumberToInt.Designer.cs">
+      <DependentUpon>201502241501230_changeProjectNumberToInt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201502271606199_changeProjectNumber.cs" />
+    <Compile Include="Migrations\201502271606199_changeProjectNumber.Designer.cs">
+      <DependentUpon>201502271606199_changeProjectNumber.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201503021057569_changeTableUsers.cs" />
+    <Compile Include="Migrations\201503021057569_changeTableUsers.Designer.cs">
+      <DependentUpon>201503021057569_changeTableUsers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201503021106408_changePropFrom.cs" />
+    <Compile Include="Migrations\201503021106408_changePropFrom.Designer.cs">
+      <DependentUpon>201503021106408_changePropFrom.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201503021115017_createTableSalt.cs" />
+    <Compile Include="Migrations\201503021115017_createTableSalt.Designer.cs">
+      <DependentUpon>201503021115017_createTableSalt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201503021427068_creatPropAccountConfirmed.cs" />
+    <Compile Include="Migrations\201503021427068_creatPropAccountConfirmed.Designer.cs">
+      <DependentUpon>201503021427068_creatPropAccountConfirmed.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201503051741269_deltedTableUserProjects.cs" />
+    <Compile Include="Migrations\201503051741269_deltedTableUserProjects.Designer.cs">
+      <DependentUpon>201503051741269_deltedTableUserProjects.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201503051752313_notConnected.cs" />
+    <Compile Include="Migrations\201503051752313_notConnected.Designer.cs">
+      <DependentUpon>201503051752313_notConnected.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201503051756000_connect.cs" />
+    <Compile Include="Migrations\201503051756000_connect.Designer.cs">
+      <DependentUpon>201503051756000_connect.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201503052121302_addpropActive.cs" />
+    <Compile Include="Migrations\201503052121302_addpropActive.Designer.cs">
+      <DependentUpon>201503052121302_addpropActive.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201503061013059_addPropDates.cs" />
+    <Compile Include="Migrations\201503061013059_addPropDates.Designer.cs">
+      <DependentUpon>201503061013059_addPropDates.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Car.cs" />
+    <Compile Include="Models\DriversJournalContext.cs" />
+    <Compile Include="Models\Journal.cs" />
+    <Compile Include="Models\Project.cs" />
+    <Compile Include="Models\Role.cs" />
+    <Compile Include="Models\JournalUser.cs" />
+    <Compile Include="Models\Salt.cs" />
+    <Compile Include="Services\CodeGenerator.cs" />
+    <Compile Include="Services\Excel.cs" />
+    <Compile Include="Services\GetJournalDB.cs" />
+    <Compile Include="Services\MailFunction.cs" />
+    <Compile Include="Services\PasswordHasher.cs" />
+    <Compile Include="Services\SaveJournalDB.cs" />
+    <Compile Include="ViewModel\ChangePasswordVM.cs" />
+    <Compile Include="ViewModel\ForgotPassword.cs" />
+    <Compile Include="ViewModel\JournalVM.cs" />
+    <Compile Include="ViewModel\LoggedJournalEditVM.cs" />
+    <Compile Include="ViewModel\LoggedJournalsVM.cs" />
+    <Compile Include="ViewModel\ProjectVM.cs" />
+    <Compile Include="ViewModel\RegisterValidateVM.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Data\DriversJournal.mdf" />
+    <Content Include="App_Data\DriversJournal_log.ldf">
+      <DependentUpon>DriversJournal.mdf</DependentUpon>
+    </Content>
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\images\sogeti_varmred_small.gif" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <None Include="Properties\PublishProfiles\driversjournal - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\driversjournal - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\driversjournalsogeti.pubxml" />
+    <None Include="Properties\PublishProfiles\sogetidriversjournal.pubxml" />
+    <None Include="Scripts\jquery-2.1.3.intellisense.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\jquery-2.1.3.js" />
+    <Content Include="Scripts\jquery-2.1.3.min.js" />
+    <Content Include="Scripts\jquery-2.1.3.min.map" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\npm.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.matchmedia.addListener.js" />
+    <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\Register.cshtml" />
+    <Content Include="Views\Journals\Journal.cshtml" />
+    <Content Include="Views\LoggedJournals\LoggedJournals.cshtml" />
+    <Content Include="Views\Home\LoggedIn.cshtml" />
+    <Content Include="Views\Home\ConfirmAccount.cshtml" />
+    <Content Include="Views\Home\AccountIsConfirmed.cshtml" />
+    <Content Include="Views\Projects\Create.cshtml" />
+    <Content Include="Views\Projects\Delete.cshtml" />
+    <Content Include="Views\Projects\Edit.cshtml" />
+    <Content Include="Views\Projects\Index.cshtml" />
+    <Content Include="Views\LoggedJournals\Edit.cshtml">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Views\ForgotPassword\Index.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\ChangePassword.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Views\User\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+    <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201502171438237_createTablesFromModels.resx">
+      <DependentUpon>201502171438237_createTablesFromModels.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201502171940187_changeToProjectNo.resx">
+      <DependentUpon>201502171940187_changeToProjectNo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201502191507523_addFirstNameLastname.resx">
+      <DependentUpon>201502191507523_addFirstNameLastname.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201502191519454_changePropToEmail.resx">
+      <DependentUpon>201502191519454_changePropToEmail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201502192038447_changePropToDestination.resx">
+      <DependentUpon>201502192038447_changePropToDestination.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201502231333586_deletedPropModelAddOdometer.resx">
+      <DependentUpon>201502231333586_deletedPropModelAddOdometer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201502241036382_addPropSavedNotSent.resx">
+      <DependentUpon>201502241036382_addPropSavedNotSent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201502241501230_changeProjectNumberToInt.resx">
+      <DependentUpon>201502241501230_changeProjectNumberToInt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201502271606199_changeProjectNumber.resx">
+      <DependentUpon>201502271606199_changeProjectNumber.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201503021057569_changeTableUsers.resx">
+      <DependentUpon>201503021057569_changeTableUsers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201503021106408_changePropFrom.resx">
+      <DependentUpon>201503021106408_changePropFrom.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201503021115017_createTableSalt.resx">
+      <DependentUpon>201503021115017_createTableSalt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201503021427068_creatPropAccountConfirmed.resx">
+      <DependentUpon>201503021427068_creatPropAccountConfirmed.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201503051741269_deltedTableUserProjects.resx">
+      <DependentUpon>201503051741269_deltedTableUserProjects.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201503051752313_notConnected.resx">
+      <DependentUpon>201503051752313_notConnected.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201503051756000_connect.resx">
+      <DependentUpon>201503051756000_connect.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201503052121302_addpropActive.resx">
+      <DependentUpon>201503052121302_addpropActive.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201503061013059_addPropDates.resx">
+      <DependentUpon>201503061013059_addPropDates.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>56255</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:56255/</IISUrl>
+          <OverrideIISAppRootUrl>True</OverrideIISAppRootUrl>
+          <IISAppRootUrl>http://localhost:56255/</IISAppRootUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

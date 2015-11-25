@@ -1,0 +1,285 @@
+﻿@model DriversJournal.ViewModel.JournalVM
+
+@{
+    ViewBag.Title = "Journal";
+}
+
+<!-- English View-->
+<div class="container myWrapper text-left">
+    @{
+        if (IsPost)
+        {
+            if (Request.Form["save"] != null)
+            {
+        <div class="alert alert-info" role="alert">
+            <h3>You have saved your drive</h3>
+        </div>
+            }
+            else
+            {
+        <div class="alert alert-success" role="alert">
+            <h3>You have completed your drive</h3>
+        </div>
+            }
+
+        }
+    }
+
+    @*<form>*@
+    @using (Html.BeginForm(null, null, FormMethod.Post, new { id = "journalForm" }))
+    {
+
+        @* ----------------------------First row ------------------------------------------ *@
+        <div class="row">
+            <div class="form-group col-xs-6">
+
+                @Html.LabelFor(m => m.StartDate)
+                @Html.TextBoxFor(m => m.StartDate, new { @class = "form-control", @placeholder = "e.g. 2015-01-01" })
+            </div>
+            <div class="form-group col-xs-6">
+                @Html.LabelFor(m => m.EndDate)
+                @Html.TextBoxFor(m => m.EndDate, new { @class = "form-control", @placeholder = "e.g. 2015-01-01" })
+            </div>
+        </div>
+
+        @* ----------------------------Second row ------------------------------------------ *@
+        <div class="row">
+            <div class="form-group col-xs-6 ">
+                @Html.LabelFor(m => m.OdometerStart)
+                @Html.TextBoxFor(m => m.OdometerStart, new { @class = "form-control", Value = @Model.OdometerStart })
+            </div>
+
+            <div class="form-group col-xs-6 ">
+                @Html.LabelFor(m => m.OdometerEnd)
+                @Html.TextBoxFor(m => m.OdometerEnd, new { @class = "form-control", @placeholder = "e.g. 1500" })
+            </div>
+        </div>
+
+        @* ----------------------------Third row ------------------------------------------ *@
+        <div class="row">
+            <div class="form-group col-xs-6 ">
+                @Html.LabelFor(m => m.From)
+                @Html.TextBoxFor(m => m.From, new {@class = "form-control", @placeholder = "e.g. Falun"})
+            </div>
+
+            <div class="form-group col-xs-6 ">
+                @Html.LabelFor(m => m.To)
+                @Html.TextBoxFor(m => m.To, new {@class = "form-control", @placeholder = "e.g. Borlänge"})
+            </div>
+        </div>
+
+        @* ----------------------------Fourth row ------------------------------------------ *@
+        <div class="row">
+            <div class="form-group col-xs-6 ">
+                @Html.LabelFor(m => m.Purpose)
+                @Html.TextBoxFor(m => m.Purpose, new { @class = "form-control", @placeholder = "e.g. development" })
+            </div>
+
+            <div class="form-group col-xs-6 ">
+                @Html.LabelFor(m => m.Cars)
+                @Html.DropDownList("car", Model.Cars, new { @Class = "form-control" })
+            </div>
+        </div>
+
+        @* ----------------------------Fifth row ------------------------------------------ *@
+
+        <div class="row">
+            <div class="form-group col-xs-6 ">
+                @*<label>Project no</label>*@
+                @Html.LabelFor(m => m.Projects)
+                @Html.DropDownList("Project", Model.Projects, "select project", new { @Class = "form-control" })
+            </div>
+
+            <div class="form-group col-xs-6">
+                <label class="">Debit:</label>
+                @Html.DropDownList("Debit", Model.Debits, new { @Class = "form-control" })
+            </div>
+        </div>
+
+        @* ----------------------------Sixth row ------------------------------------------ *@
+        <div class="row">
+            <div class="form-group col-xs-12">
+                @Html.LabelFor(m => m.Travelers)
+                @Html.TextBoxFor(m => m.Travelers, new {@class = "form-control", @placeholder = "e.g. Anders Andersson"})
+            </div>
+        </div>
+
+        @* ----------------------------Seventh row ------------------------------------------ *@
+        <div class="row">
+            <div class="col-xs-6 form-group">
+                <input type="button" class="btn btn-primary btn-block " name="save" id="save" title="Save" value="Save">
+            </div>
+
+            <div class="col-xs-6 form-group">
+                <input type="button" class="btn btn-success btn-block" name="send" id="send" title="Finish" value="Finish">
+            </div>
+        </div>
+    }
+    @*</form>*@
+</div>
+
+<script>
+    // var thats contains hidden input field
+    var input;
+
+    $(document).ready(function () {
+
+        jQuery.validator.addMethod("accept", function (value, element, param) {
+            // if the field is empty, don't validate
+            if (this.optional(element)) {
+                return true;
+            }
+            return value.match(new RegExp("^" + param + "$"));
+        });
+
+        $.validator.addMethod("startDateVal", function (value, element) {
+            return value.match(/^(19|20)\d\d-(0\d|1[012])-(0\d|1\d|2\d|3[01])$/);
+        },
+             "Please enter a date in the format yyyy-mm-dd."
+        );
+
+        $.validator.addMethod("endDateVal", function (value, element) {
+            // if textfield is empty
+            if (value === "") {
+                return true;
+            }
+
+            return value.match(/^(19|20)\d\d-(0\d|1[012])-(0\d|1\d|2\d|3[01])$/);
+            //return value.match('[^\s]');
+        },
+             "Please enter a date in the format yyyy-mm-dd."
+        );
+
+        //set the appearance for the error message
+        $.validator.setDefaults({
+            errorClass: "form-error",
+            errorElement: "div"
+
+        });
+
+        $("#journalForm").validate({
+            rules: {
+                OdometerStart: { digits: true, required: true, maxlength:10 },
+                OdometerEnd: { digits: true }
+            },
+            messages: {
+                OdometerStart: {
+                    digits: "Please enter only digits",
+                    required: "Enter Odometer start",
+                    maxlength: "Please enter no more than 10 digits."
+                    
+
+                },
+
+                OdometerEnd: {
+                    digits: "Please enter only digits",
+                    required: "Enter Odometer stop",
+                    maxlength: "Please enter no more than 10 digits."
+                },
+                From: {
+                    required: "Enter a location",
+                    accept: "Enter only letters and numbers"
+                },
+                To: {
+                    required: "Enter a location",
+                    accept: "Enter only letters and numbers"
+                },
+                Project: {
+                    required: "Select projectnumber"
+
+                }
+
+            }
+
+        });
+
+    });
+
+    $("#save").click(function () {
+        //if send button is pressed first, remove the validation from these inputs
+        $('[name="From"], [name="To"], [name="OdometerEnd"], [name="Project"]').each(function () {
+            $(this).rules('remove');
+        });
+
+        $('#StartDate').rules('add', {
+            startDateVal: true
+        });
+
+        $('#EndDate').rules('add', {
+            endDateVal: true
+        });
+
+        $('#OdometerEnd').rules('add', {
+            digits: true,
+            maxlength:10
+        });
+
+        $('#From').rules('add', {
+            accept: "[a-zåäö A-ZÅÄÖ0-9]+",
+            maxlength: 30
+        });
+
+        $('#To').rules('add', {
+            accept: "[a-zåäö A-ZÅÄÖ0-9]+",
+            maxlength: 30
+        });
+
+        // check if the input is already  added to the form
+        if (input == null) {
+
+            //create a hidden input field with name attribute
+            input = $("<input>")
+                .attr("type", "hidden")
+                .attr("name", "save").val("save")
+                .attr("id", "hiddensave");
+
+            //add hidden input to form
+            $('#journalForm').append($(input));
+
+        }
+
+        $("#journalForm").submit(); //validate and submit form
+
+    });
+
+    $("#send").click(function () {
+
+        $('#StartDate').rules('add', {
+            startDateVal: true
+        });
+
+        $('#EndDate').rules('add', {
+            endDateVal: true
+        });
+
+        $('#OdometerEnd').rules('add', {
+            required: true,
+            digits: true,
+            maxlength: 10
+        });
+
+        $('#From').rules('add', {
+            required: true,
+            accept: "[a-zåäö A-ZÅÄÖ0-9]+",
+            maxlength: 30
+        });
+
+        $('#To').rules('add', {
+            required: true,
+            accept: "[a-zåäö A-ZÅÄÖ0-9]+",
+            maxlength: 30
+        });
+
+        $('#Project').rules('add', {
+            required: true
+        });
+
+        // if input has a value, we remove that emelent
+        if (input != null) {
+            $("#hiddensave").remove();
+        }
+
+        $("#journalForm").submit(); // validate and submit
+
+    });
+</script>

@@ -1,0 +1,37 @@
+﻿@model DriversJournal.Models.JournalUser
+
+@{
+    ViewBag.Title = "Home Page";
+}
+<!-- English View-->
+<div class="container myWrapper">
+
+    @using (Html.BeginForm())
+    {
+        <div class="form-group">
+            <!-- Validation -->
+            <h3>Drivers Journal</h3>
+            @Html.Raw(Html.ValidationSummary(true, "Login failed!", new { @class = "alert alert-danger" }))
+
+            <!-- JournalUsername input -->
+            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", @placeholder = "Sogeti-mail" } })
+            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+            <br />
+            <!-- password input -->
+            @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control", @placeholder = "Password", @type = "password" } })
+            @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+        </div>
+        <div class="row">
+            <div class="col-md-6 form-group">
+                <input type="submit" value="Login" class="btn btn-primary btn-block" />
+            </div>
+            <div class="col-md-6 form-group">
+                @Html.ActionLink("Register", "Register", null, new { @class = "btn btn-default btn-block", title = "Register new JournalUser" })
+            </div>
+        </div>
+    <div class="row">
+        <a href="@Url.Action("Index", "ForgotPassword")">Forgot Password?</a>
+    </div>
+
+    }
+    </div>

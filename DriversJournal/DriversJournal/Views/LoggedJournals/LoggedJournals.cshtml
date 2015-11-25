@@ -1,0 +1,131 @@
+﻿@model DriversJournal.ViewModel.LoggedJournalsVM
+
+@{
+    ViewBag.Title = "LoggedJournals";
+}
+
+<div>
+    <!--Header för Year & Month-->
+
+    <div>
+        @using (Html.BeginForm("Excel", "LoggedJournals", FormMethod.Post, new { role = "form", @class = "logActions" }))
+        {
+            @Html.HiddenFor(x => x.SelectedYear)
+            @Html.HiddenFor(x => x.SelectedMonth)
+            <br />
+            <button type="submit" class="btn btn-primary">Open in Excel</button>
+        }
+        @using (Html.BeginForm(null, null, FormMethod.Post, new { @class = "form-inline dateDropdown" }))
+        { <div class="form-group">
+            @Html.DropDownListFor(modelItem => Model.SelectedYear, new SelectList(Model.Years, "Text", "Value"), new
+            {
+                onchange = @"form.submit();",
+                @class = "form-control"
+            })
+            &nbsp;
+            @Html.DropDownListFor(modelItem => Model.SelectedMonth, new SelectList(Model.Months, "Text", "Value"), new
+            {
+                onchange = @"form.submit();",
+                @class = "form-control"
+            })
+        </div>
+        }
+    </div>
+    <br />
+
+    <br />
+    <!--Body för Table med Journals-->
+    <div class="table-responsive">
+        <table class="table table-bordered">
+            <tr>
+                <th>
+                    Odometer start
+                </th>
+                <th>
+                    Odometer end
+                </th>
+                <th width="91px">
+                    Start Date
+                </th>
+                <th width="91px">
+                    End Date
+                </th>
+                <th>
+                    From
+                </th>
+                <th>
+                    To
+                </th>
+                <th>
+                    Travelers
+                </th>
+                <th>
+                    Project no
+                </th>
+                <th>
+                    Deb Y/N
+                </th>
+                <th>
+                    No of km
+                </th>
+                <th>
+                    Purpose / Company
+                </th>
+            </tr>
+            @foreach (var item in Model.Journals)
+            {
+                <tr>
+                    <td class="text-right">
+                        @Html.DisplayFor(modelItem => item.OdometerStart)
+                    </td>
+                    <td class="text-right">
+                        @Html.DisplayFor(modelItem => item.OdometerEnd)
+                    </td>
+                    <td class="text-left">
+                        @item.StartDate.ToString("yyyy-MM-dd")
+                    </td>
+                    <td class="text-left">
+                        @item.EndDate.ToString("yyyy-MM-dd")
+                    </td>
+                    <td class="text-left">
+                        @Html.DisplayFor(modelItem => item.FromDestination)
+                    </td>
+                    <td class="text-left">
+
+                        @Html.DisplayFor(modelItem => item.ToDestination)
+                    </td>
+                    <td class="text-left">
+
+                        <b>@item.JournalUser.FirstName</b>
+                        <b>@item.JournalUser.LastName</b>
+
+                        @Html.DisplayFor(modelItem => item.Travelers)
+                    </td>
+                    <td class="text-right">
+                        @Html.DisplayFor(modelItem => item.ProjectNumber)
+                    </td>
+                    <td class="text-left">
+
+                        @if (item.Debit == 0)
+                        {
+                            <p>N</p>
+                        }
+                        else
+                        {
+                            <p>Y</p>
+                        }
+                    </td>
+                    <td class="text-right">
+                        @Html.DisplayFor(modelItem => item.KmNo)
+                    </td>
+                    <td class="text-left">
+                        @Html.DisplayFor(modelItem => item.Purpose)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.JournalId })
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>

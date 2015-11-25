@@ -1,0 +1,69 @@
+﻿@using DriversJournal.Models;
+
+@model DriversJournal.ViewModel.ProjectVM
+@{
+    ViewBag.Title = "Project - Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@{ JournalUser user = (JournalUser)HttpContext.Current.Session["SessionUser"]; }
+
+<h2>Create Project</h2>
+<div class="container myWrapperProject">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <hr/>
+            <div class="text-left">
+
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(model => model.ProjectNo, htmlAttributes: new { @class = "control-label col-md-3" })
+                    <div class="col-md-9">
+                        @Html.EditorFor(model => model.ProjectNo, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.ProjectNo, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-3" })
+                    <div class="col-md-9">
+                        @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Detail, htmlAttributes: new { @class = "control-label col-md-3" })
+                    <div class="col-md-9">
+                        @Html.EditorFor(model => model.Detail, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Detail, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+            </div>@*end text-left*@
+
+                <div class="form-group">
+                @Html.LabelFor(model => model.IsActive, htmlAttributes: new {@class = "control-label col-md-3"})
+                <div class="checkbox">
+                    <div class="col-md-3">
+                        @Html.CheckBoxFor(model => model.IsActive, new {@checked = "true"})
+                        @Html.ValidationMessageFor(model => model.IsActive, "", new {@class = "text-danger"})
+                    </div>
+                </div>
+            </div>
+                
+            <div class="form-group">
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.UserId, new { htmlAttributes = new { @class = "form-control", @Value = @user.UserId, @readonly = "readonly", @Style = "visibility: hidden" } })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <a href="@Url.Action("Index", "Projects")" class="btn btn-default"><span class="glyphicon glyphicon-chevron-left"></span> Go Back</a>
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </div>
+    }
+</div>

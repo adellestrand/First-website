@@ -1,0 +1,29 @@
+﻿@{
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container myWrapper">
+    <hgroup>
+
+        <h1>Error.</h1>
+        <h2>An error occurred while processing your request.</h2>
+    </hgroup>
+    <div id="timer_div"></div>
+</div>
+
+<script>
+    var seconds_left = 6;
+    var interval = setInterval(function () {
+        document.getElementById('timer_div').innerHTML = "You will be redirected in: " + --seconds_left + " seconds";
+
+        if (seconds_left <= 0) {
+
+            onTimerElapsed();
+        }
+    }, 1000);
+
+    function onTimerElapsed() {
+        window.location = '@Url.Action("Index","Home")';
+    }
+</script>

@@ -1,0 +1,161 @@
+﻿body {
+    padding-bottom: 20px;
+}
+ 
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+ 
+/* Override the default bootstrap behavior where horizontal description lists
+   will truncate terms that are too long to fit in the left column
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+ 
+/* Set width on the form input elements since they're 100% wide by default
+input,
+select,
+textarea {
+    max-width: 280px;
+}*/
+ 
+.myWrapper{
+    max-width: 350px;
+}
+
+.myWrapperProject{
+    max-width: 550px;
+}
+/* styles for validation helpers */
+.field-validation-error {
+    color: #b94a48;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+input.input-validation-error {
+    border: 1px solid #b94a48;
+}
+
+
+select.input-validation-error {
+    border: 1px solid #b94a48;
+}
+
+input[type="checkbox"].input-validation-error {
+    border: 0 none;
+}
+
+.validation-summary-errors {
+    color: #b94a48;
+}
+
+.validation-summary-valid {
+    display: none;
+}
+
+#header-nav{
+    margin-top: -20px;
+}
+
+.form-error{
+    color:red;
+}
+
+
+/* header image */
+.page-header img{
+    
+    padding: 0;
+}
+
+.page-header{
+    background: #ff4411;
+    margin-top: 0;
+    padding-top: 10px;
+}
+
+.dateDropdown{
+    float: left;
+  }
+h3 { margin-top: 0 }
+.btn-sogetired { 
+  color: #FF4411; 
+  background-color: #fff;
+  border-color: #ccc;
+} 
+
+.btn-sogetired:hover, 
+.btn-sogetired:focus, 
+.btn-sogetired:active, 
+.btn-sogetired.active, 
+.open .dropdown-toggle.btn-sogetired { 
+  color: #FF4411; 
+  background-color: #e6e6e6;
+  border-color: #adadad;
+}
+
+.btn-sogetired:active, 
+.btn-sogetired.active, 
+.open .dropdown-toggle.btn-sogetired { 
+  background-image: none; 
+}
+
+.btn-sogetired.disabled, 
+.btn-sogetired[disabled], 
+fieldset[disabled] .btn-sogetired, 
+.btn-sogetired.disabled:hover, 
+.btn-sogetired[disabled]:hover, 
+fieldset[disabled] .btn-sogetired:hover, 
+.btn-sogetired.disabled:focus, 
+.btn-sogetired[disabled]:focus, 
+fieldset[disabled] .btn-sogetired:focus, 
+.btn-sogetired.disabled:active, 
+.btn-sogetired[disabled]:active, 
+fieldset[disabled] .btn-sogetired:active, 
+.btn-sogetired.disabled.active, 
+.btn-sogetired[disabled].active, 
+fieldset[disabled] .btn-sogetired.active { 
+  background-color: #fff;
+  border-color: #ccc;
+} 
+ 
+.btn-sogetired .badge { 
+  color: #FF4411; 
+  background-color: #333;
+}
+.btn-sogetired {
+  text-shadow: 0 1px 0 #fff;
+  background-image: -webkit-linear-gradient(top, #fff 0%, #e0e0e0 100%);
+  background-image:      -o-linear-gradient(top, #fff 0%, #e0e0e0 100%);
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#e0e0e0));
+  background-image:         linear-gradient(to bottom, #fff 0%, #e0e0e0 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#ffe0e0e0', GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+  background-repeat: repeat-x;
+  border-color: #dbdbdb;
+  border-color: #ccc;
+}
+.btn-sogetired:hover,
+.btn-sogetired:focus {
+  background-color: #e0e0e0;
+  background-position: 0 -15px;
+}
+.btn-sogetired:active,
+.btn-sogetired.active {
+  background-color: #e0e0e0;
+  border-color: #dbdbdb;
+}
+.btn-sogetired:disabled,
+.btn-sogetired[disabled] {
+  background-color: #e0e0e0;
+  background-image: none;
+}
+.modal-body{
+    height: 400px;
+}

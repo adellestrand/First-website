@@ -1,0 +1,61 @@
+﻿@model DriversJournal.ViewModel.RegisterValidateVM
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="container myWrapper">
+    @{
+        if (IsPost)
+        {
+            if (TempData["failed"] != null)
+            {
+                <div class="alert alert-danger" role="alert">
+                    <h3>That email allready exists</h3>
+                </div>
+            }
+            else
+            {
+                <div class="alert alert-info" role="alert">
+                    <h3>You have registered an account - An email has been sent</h3>
+                    @Html.ActionLink("Go to login page", "Index");
+                </div>
+            }
+
+        }
+    }
+    @using (Html.BeginForm("Register", "Home", FormMethod.Post, new { role = "form", id = "register" }))
+    {
+        <div class="text-left">
+            <div class="form-group">
+                @Html.LabelFor(m => m.Forename, new { @class = "control-label" })
+                @Html.TextBoxFor(m => m.Forename, new { @class = "form-control", @placeholder = "Johan" })
+                @Html.ValidationMessageFor(m => m.Forename, null, new { @class = "help-inline" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.Surname, new { @class = "control-label" })
+                @Html.TextBoxFor(m => m.Surname, new { @class = "form-control", @placeholder = "Johansson" })
+                @Html.ValidationMessageFor(m => m.Surname, null, new { @class = "help-inline" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.Email, new { @class = "control-label" })
+                @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @placeholder = "johan.johansson@sogeti.se" })
+                @Html.ValidationMessageFor(m => m.Email, null, new { @class = "help-inline" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.Password, new { @class = "control-label" })
+                @Html.PasswordFor(m => m.Password, new { @class = "form-control", @placeholder = "********" })
+                @Html.ValidationMessageFor(m => m.Password, null, new { @class = "help-inline" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.ConfirmPassword, new { @class = "control-label" })
+                @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control", @placeholder = "********" })
+                @Html.ValidationMessageFor(m => m.ConfirmPassword, null, new { @class = "help-inline" })
+            </div>
+        </div>
+        <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Register</button>
+            <a href="~/Home/" class="btn btn-default" role="button">Cancel</a>
+        </div>
+    }
+</div>

@@ -1,0 +1,8 @@
+﻿@{
+    ViewBag.Title = "ConfirmAccount";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Account Confirmed!</h2>
+<h3>Klick the link below to go to login page</h3>
+@Html.ActionLink("Go to Login page", "Index", null, new { @class = "btn btn-default", title = "Loginpage" })
